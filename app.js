@@ -19,7 +19,6 @@ app.use('/user', hidden , user)
 app.use('/AllBooks', Book)
 app.use('/Products' ,Products )
 
-//
 
 //static 
 
@@ -28,6 +27,10 @@ app.use(express.static( 'public'));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'html.html'));
 });
+
+
+
+
 
 // port
 app.listen(port ,()=>{
