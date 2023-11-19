@@ -9,22 +9,14 @@ async function getProdacts() {
 
   const AllProducts = []
 
-
   function enterToArray(data) {
     for (const product of data) {
       if (product.id) {
         AllProducts.push(product)
-      
       }
         }
-
     }
-  
- 
-
-
   class Products{
-
 
 //get All
 
@@ -43,12 +35,20 @@ getOneProdact(req , res) {
       res.status(404).json({ error: "Product not found" });
   }
   }
-
+  
   //post one Product
+
   postOneProdact(req , res) {
+    const params = req.params;
     const newProduct = req.body
-    AllProducts.push(newProduct)
-    res.send(newProduct)
+    add(params, newProduct)
+    AllProducts.push(newBook)
+    res.send(newBook)
   }
+
+
+
+
+
   }
   module.exports = new Products
