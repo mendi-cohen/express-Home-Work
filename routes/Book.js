@@ -6,15 +6,15 @@ const Controllers = require("../controllers/BookController")
 //getAll
 BookPage.get('/',Controllers.getAll);
 //get
-BookPage.get("/:bookId",Controllers.getBook)
+BookPage.get("/:id",Controllers.getBook)
 //post
-BookPage.post('/:Id',Controllers.setBook)
+BookPage.post('/:id',Controllers.PostBook)
 //delete
-BookPage.delete('/:bookId',Controllers.deleteBook)
+BookPage.delete('/:id',Controllers.deleteBook)
 //put
-BookPage.put('/:bookId',Controllers.putBook);
+BookPage.put('/:id',Controllers.putBook);
 //patch
-BookPage.patch('/:bookId',Controllers.patchBook)
+BookPage.patch('/:id',Controllers.patchBook)
 //query
 BookPage.get('/', Controllers.queryBook)
 

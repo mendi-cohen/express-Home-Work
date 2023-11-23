@@ -11,37 +11,45 @@ class UseBooks {
    res.json(getAll);
   }
 
+  //GET
+
   getBook(req, res) {
-    const bId = req.params.bookId;
-    const findBook = BooksFunction.getOnBook(bId);
+    const bId = req.params.id;
+    const findBook = BooksFunction.findID(bId);
     res.json(findBook);
   }
 
-  setBook(req, res) {
-    const PostBook = req.body;
+  //POST
+
+  PostBook(req, res) {
     const params = req.params;
-    const POST = BooksFunction.postOnBook(params,PostBook)
+    const PostBook = req.body;
+  const POST = BooksFunction.postOnBook(params,PostBook)
     res.json(POST);
   }
 
+  //DELETE
+
   deleteBook(req, res) {
-    const id = req.params.bookId;
+    const id = req.params.id;
     const  Del= BooksFunction.deleteBook(id)
    res.json(Del);
     }
+
+    //PUT
   
   putBook(req, res) {
-    const PutBook = req.params.bookId;
+    const PutBook = req.params.id;
     const NewBook = req.body;
-    const FineBook = BooksArr.findIndex((book) => book.id == PutBook);
-    if (FineBook !== -1) {
-      BooksArr[FineBook] = NewBook;
-
-      res.send(BooksArr[FineBook]);
-    }
+    const result = BooksFunction.PutBook(PutBook, NewBook )
+   res.json(result);
   }
+
+ //PATCH
+
+
   patchBook(req, res) {
-    const patchBook = req.params.bookId;
+    const patchBook = req.params.id;
     const fineBookIndex = BooksArr.findIndex((book) => book.id == patchBook);
     if (req.body.id) {
       BooksArr[fineBookIndex].id = req.body.id;
